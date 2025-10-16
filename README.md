@@ -1,4 +1,4 @@
-<pre> ```lib/
+<pre> lib/
 │
 ├── main.dart                 # App entrypoint / bootstrap
 ├── service_locator.dart      # Dependency Injection setup (GetIt)
@@ -28,7 +28,7 @@
 │   └── utils/                # Constants, endpoints, styles, helpers, extensions
 │
 └──       
-``` </pre>
+</pre>
 
 🧩 **Packages Used**
 
