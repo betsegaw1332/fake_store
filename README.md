@@ -1,16 +1,30 @@
-# fake_store
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+│
+├── main.dart                 # App entrypoint / bootstrap
+├── service_locator.dart      # Dependency Injection setup (GetIt)
+├── src/
+│   ├── config/               # Routing, theming and shared config (router, routes, theme, DataState)
+│   │
+│   ├── data/                 # Data layer: sources + repository implementations
+│   │   ├── data-source/
+│   │   │   ├── local/        # Local storage (SharedPrefs, cart & favorites persistence)
+│   │   │   └── remote/       # Retrofit/Dio API services (generated *.g.dart files included)
+│   │   └── repositories/     # Concrete repositories (Auth, Product)
+│   │
+│   ├── domain/               # Business logic layer
+│   │   ├── models/
+│   │   │   ├── entities/     # Core domain entities (pure Dart)
+│   │   │   ├── request/      # Request DTOs
+│   │   │   └── response/     # Response DTOs
+│   │   ├── repositories/     # Abstract repository contracts
+│   │   └── usecases/         # Application use-cases (e.g., SignInUser, GetProducts)
+│   │
+│   ├── presentation/         # UI layer
+│   │   ├── blocs/            # BLoC state management (auth, product, cart, favorite)
+│   │   ├── pages/            # Screens (home, login, product detail, welcome)
+│   │   │   └── components/   # Page-specific widgets (cards, bodies, etc.)
+│   │   └── widgets/          # Reusable UI components
+│   │
+│   └── utils/                # Constants, endpoints, styles, helpers, extensions
+│
+└──                          
