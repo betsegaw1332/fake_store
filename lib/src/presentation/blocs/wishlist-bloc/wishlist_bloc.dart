@@ -5,26 +5,26 @@ import 'package:fake_store/src/domain/domain.dart';
 import 'package:fake_store/src/utils/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'favorite_event.dart';
-part 'favorite_state.dart';
+part 'wishlist_event.dart';
+part 'wishlist_state.dart';
 
-class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
-  FavoriteBloc()
-    : super(const FavoriteState(stateStatus: AppStateStatus.initial)) {
+class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
+  WishlistBloc()
+    : super(const WishlistState(stateStatus: AppStateStatus.initial)) {
     on<GetFavoriteProductsEvent>(_onGetFavoriteProducts);
-    on<AddRemoveFavoriteProductEvent>(_onAddRemoveToFavoriteEvent);
+    on<AddRemoveFavoriteProductEvent>(_onAddRemoveToWishlistEvent);
   }
 
   Future<void> _onGetFavoriteProducts(
     GetFavoriteProductsEvent event,
-    Emitter<FavoriteState> emit,
+    Emitter<WishlistState> emit,
   ) async {
     emit(
-      FavoriteState(
+      WishlistState(
         stateStatus: AppStateStatus.loadingBody,
         favoriteProducts: List.generate(
           5,
-          (index) => FavoriteProductEntity.mockData(),
+          (index) => WishlistProductEntity.mockData(),
         ),
       ),
     );
@@ -32,28 +32,28 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     final favoriteProducts = await FavoriteLocalStorage.getFavoriteProducts();
 
     emit(
-      FavoriteState(
+      WishlistState(
         stateStatus: AppStateStatus.successLoaded,
         favoriteProducts: favoriteProducts,
       ),
     );
   }
 
-  Future<void> _onAddRemoveToFavoriteEvent(
+  Future<void> _onAddRemoveToWishlistEvent(
     AddRemoveFavoriteProductEvent event,
-    Emitter<FavoriteState> emit,
+    Emitter<WishlistState> emit,
   ) async {
-    emit(FavoriteState(stateStatus: AppStateStatus.loadingBody));
+    emit(WishlistState(stateStatus: AppStateStatus.loadingBody));
 
     var response = await FavoriteLocalStorage.addRemoveFavoriteProduct(
       productData: event.productData,
     );
 
     if (response is DataSuccess) {
-      emit(FavoriteState(stateStatus: AppStateStatus.successSubmit));
+      emit(WishlistState(stateStatus: AppStateStatus.successSubmit));
     } else {
       emit(
-        FavoriteState(
+        WishlistState(
           stateStatus: AppStateStatus.error,
           error: AddRemoveToFavoriteFailed(),
         ),

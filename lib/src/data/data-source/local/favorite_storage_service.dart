@@ -6,22 +6,22 @@ class FavoriteLocalStorage {
   static const String _favoriteKey = 'favorite_products';
 
   static Future<void> _saveFavoriteProduct(
-    List<FavoriteProductEntity> items,
+    List<WishlistProductEntity> items,
   ) async {
     final prefs = await SharedPreferences.getInstance();
-    final encoded = FavoriteProductEntity.encode(items);
+    final encoded = WishlistProductEntity.encode(items);
     await prefs.setString(_favoriteKey, encoded);
   }
 
-  static Future<List<FavoriteProductEntity>> getFavoriteProducts() async {
+  static Future<List<WishlistProductEntity>> getFavoriteProducts() async {
     final prefs = await SharedPreferences.getInstance();
     final data = prefs.getString(_favoriteKey);
     if (data == null) return [];
-    return FavoriteProductEntity.decode(data);
+    return WishlistProductEntity.decode(data);
   }
 
   static Future<DataState> addRemoveFavoriteProduct({
-    required FavoriteProductEntity productData,
+    required WishlistProductEntity productData,
   }) async {
     try {
       final items = await getFavoriteProducts();

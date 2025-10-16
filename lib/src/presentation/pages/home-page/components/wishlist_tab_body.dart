@@ -21,10 +21,10 @@ class WishlistTabBody extends StatelessWidget {
         ),
         20.h.heightSpace,
 
-        BlocConsumer<FavoriteBloc, FavoriteState>(
+        BlocConsumer<WishlistBloc, WishlistState>(
           listener: (context, favoriteState) {
             if (favoriteState.stateStatus == AppStateStatus.successSubmit) {
-              context.read<FavoriteBloc>().add(GetFavoriteProductsEvent());
+              context.read<WishlistBloc>().add(GetFavoriteProductsEvent());
             }
           },
           builder: (context, favoriteState) {
@@ -32,7 +32,7 @@ class WishlistTabBody extends StatelessWidget {
                 favoriteState.favoriteProducts.isEmpty) {
               return RefreshIndicator(
                 onRefresh: () async {
-                  context.read<FavoriteBloc>().add(GetFavoriteProductsEvent());
+                  context.read<WishlistBloc>().add(GetFavoriteProductsEvent());
                 },
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),

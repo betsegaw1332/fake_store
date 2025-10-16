@@ -26,4 +26,4 @@ export 'widgets/app_page_header.dart';
 export 'blocs/auth-bloc/auth_bloc.dart';
 export 'blocs/product-bloc/product_bloc.dart';
 export 'blocs/cart-bloc/cart_bloc.dart';
-export 'blocs/favorite-bloc/favorite_bloc.dart';
+export 'blocs/wishlist-bloc/wishlist_bloc.dart';

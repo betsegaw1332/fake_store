@@ -36,5 +36,5 @@ Future<void> serviceLocatorInit() async {
   serviceLocator.registerSingleton<AuthBloc>(AuthBloc());
   serviceLocator.registerSingleton<ProductBloc>(ProductBloc());
   serviceLocator.registerSingleton<CartBloc>(CartBloc());
-  serviceLocator.registerSingleton<FavoriteBloc>(FavoriteBloc());
+  serviceLocator.registerSingleton<WishlistBloc>(WishlistBloc());
 }

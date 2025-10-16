@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WishListCard extends StatelessWidget {
-  final FavoriteProductEntity favoriteProductData;
+  final WishlistProductEntity favoriteProductData;
   const WishListCard({super.key, required this.favoriteProductData});
 
   @override
@@ -56,7 +56,7 @@ class WishListCard extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.read<FavoriteBloc>().add(
+                        context.read<WishlistBloc>().add(
                           AddRemoveFavoriteProductEvent(
                             productData: favoriteProductData,
                           ),

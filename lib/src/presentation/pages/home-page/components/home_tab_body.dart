@@ -54,11 +54,11 @@ class HomeTabBody extends StatelessWidget {
                     },
                   );
                 }
-                return BlocConsumer<FavoriteBloc, FavoriteState>(
+                return BlocConsumer<WishlistBloc, WishlistState>(
                   listener: (context, favoriteState) {
                     if (favoriteState.stateStatus ==
                         AppStateStatus.successSubmit) {
-                      context.read<FavoriteBloc>().add(
+                      context.read<WishlistBloc>().add(
                         GetFavoriteProductsEvent(),
                       );
                     }

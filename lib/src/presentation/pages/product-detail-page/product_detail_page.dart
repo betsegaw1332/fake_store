@@ -57,10 +57,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         onTap: () {
                           _isFavoriteNotifier.value =
                               !_isFavoriteNotifier.value;
-                          context.read<FavoriteBloc>().add(
+                          context.read<WishlistBloc>().add(
                             AddRemoveFavoriteProductEvent(
                               productData:
-                                  FavoriteProductEntity.fromProductEntity(
+                                  WishlistProductEntity.fromProductEntity(
                                     productData: widget.productData,
                                   ),
                             ),

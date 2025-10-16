@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create:
               (context) =>
-                  serviceLocator.get<FavoriteBloc>()
+                  serviceLocator.get<WishlistBloc>()
                     ..add(GetFavoriteProductsEvent()),
         ),
       ],

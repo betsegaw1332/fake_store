@@ -4,46 +4,46 @@ import 'package:fake_store/src/domain/domain.dart';
 import 'package:fake_store/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'favorite_product_entity.g.dart';
+part 'wishlist_product_entity.g.dart';
 
 @JsonSerializable()
-class FavoriteProductEntity {
+class WishlistProductEntity {
   final int id;
   final String title;
   final String imageUrl;
   final double price;
 
-  FavoriteProductEntity({
+  WishlistProductEntity({
     required this.id,
     required this.title,
     required this.imageUrl,
     required this.price,
   });
 
-  factory FavoriteProductEntity.fromJson(JSON json) => _$FavoriteProductEntityFromJson(json);
+  factory WishlistProductEntity.fromJson(JSON json) => _$WishlistProductEntityFromJson(json);
 
-  JSON toJson() => _$FavoriteProductEntityToJson(this);
+  JSON toJson() => _$WishlistProductEntityToJson(this);
 
-  static String encode(List<FavoriteProductEntity> items) =>
+  static String encode(List<WishlistProductEntity> items) =>
       json.encode(items.map((item) => item.toJson()).toList());
 
-  static List<FavoriteProductEntity> decode(String items) =>
+  static List<WishlistProductEntity> decode(String items) =>
       (json.decode(items) as List<dynamic>)
-          .map<FavoriteProductEntity>((item) => FavoriteProductEntity.fromJson(item))
+          .map<WishlistProductEntity>((item) => WishlistProductEntity.fromJson(item))
           .toList();
 
-  factory FavoriteProductEntity.mockData() {
-    return FavoriteProductEntity(
+  factory WishlistProductEntity.mockData() {
+    return WishlistProductEntity(
       id: 0,
       price: 0,
       title: "Cart Item Entity Title",
       imageUrl: AppConstants.placeholerImg,
     );
   }
-  factory FavoriteProductEntity.fromProductEntity({
+  factory WishlistProductEntity.fromProductEntity({
     required ProductEntity productData,
   }) {
-    return FavoriteProductEntity(
+    return WishlistProductEntity(
       id: productData.id,
       price: productData.price,
       title: productData.title,

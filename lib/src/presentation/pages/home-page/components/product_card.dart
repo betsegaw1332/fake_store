@@ -61,10 +61,10 @@ class ProductCard extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.read<FavoriteBloc>().add(
+                        context.read<WishlistBloc>().add(
                           AddRemoveFavoriteProductEvent(
                             productData:
-                                FavoriteProductEntity.fromProductEntity(
+                                WishlistProductEntity.fromProductEntity(
                                   productData: productData,
                                 ),
                           ),

@@ -13,7 +13,7 @@ export 'models/response/api_rating_response.dart';
 export 'models/entities/rating_entity.dart';
 export 'models/entities/product_entity.dart';
 export 'models/entities/cart_item_entity.dart';
-export 'models/entities/favorite_product_entity.dart';
+export 'models/entities/wishlist_product_entity.dart';
 //repositories export
 
 export 'repositories/api_auth_repository.dart';

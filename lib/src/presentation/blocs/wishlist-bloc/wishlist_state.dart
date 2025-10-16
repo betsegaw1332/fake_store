@@ -1,11 +1,11 @@
-part of 'favorite_bloc.dart';
+part of 'wishlist_bloc.dart';
 
-class FavoriteState extends Equatable {
+class WishlistState extends Equatable {
   final AppStateStatus stateStatus;
   final AppError? error;
-  final List<FavoriteProductEntity> favoriteProducts;
+  final List<WishlistProductEntity> favoriteProducts;
 
-  const FavoriteState({
+  const WishlistState({
     required this.stateStatus,
     this.error,
     this.favoriteProducts = const [],
@@ -14,12 +14,12 @@ class FavoriteState extends Equatable {
   @override
   List<Object?> get props => [stateStatus, error];
 
-  FavoriteState copyWith({
+  WishlistState copyWith({
     AppStateStatus? stateStatus,
     AppError? error,
-    final List<FavoriteProductEntity>? favoriteProducts,
+    final List<WishlistProductEntity>? favoriteProducts,
   }) {
-    return FavoriteState(
+    return WishlistState(
       stateStatus: stateStatus ?? this.stateStatus,
       error: error ?? this.error,
       favoriteProducts: favoriteProducts ?? this.favoriteProducts,
